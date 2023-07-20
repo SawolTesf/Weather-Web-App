@@ -1,25 +1,25 @@
-body{
+body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-#footer{
+#footer {
     margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    font-size: 10px;
 }
 
-#github-logo{
+#github-logo {
     height: 20px;
     width: auto;
     padding: 10px;
     transition: transform .7s ease-in-out;
 }
 
-  #github-logo:hover{
+#github-logo:hover {
     transform: rotate(360deg);
-  }
-
+}
