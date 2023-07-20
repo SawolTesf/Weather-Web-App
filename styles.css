@@ -16,7 +16,10 @@ body{
     height: 20px;
     width: auto;
     padding: 10px;
+    transition: transform .7s ease-in-out;
 }
 
-
+  #github-logo:hover{
+    transform: rotate(360deg);
+  }
 
