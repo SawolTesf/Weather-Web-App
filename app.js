@@ -1,8 +1,13 @@
 // Variables
 const mainContainer = document.getElementById('main-container');
+const formContainer = document.getElementById('form-container');
+const weatherContainer = document.getElementById('weather-container');
+const weatherIcon = document.getElementById('weather-icon');
 const currentTemp = document.getElementById('current-temp');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
+const errorMessage = document.getElementById('error-message');
+
 
 // Event Listeners
 searchForm.addEventListener('submit', e => {
@@ -24,8 +29,11 @@ async function getWeather(location) {
         const data = await response.json();
         console.log(data);
         currentTemp.textContent = data.current.temp_c;
+        weatherIcon.src = data.current.condition.icon;
+        errorMessage.textContent = '';
     } catch (error) {
-        alert(error.message);
+        errorMessage.textContent = "No weather data found. Please make sure your location entered is in the format of City, State or City, Country.";
+        currentTemp.textContent = 'N/A';
     }
 }
 
