@@ -4,6 +4,42 @@ body {
     flex-direction: column;
 }
 
+/*  Weather container */
+
+#weather-container {
+    text-align: center;
+}
+
+#location-name {
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+}
+
+#current-date {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+#current-time {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+#weather-icon {
+    width: 100px;
+}
+
+#weather-description {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+#current-temp {
+    font-size: 36px;
+    color: rgb(0, 0, 0);
+}
+
+/* Footer */
 #footer {
     margin-top: auto;
     display: flex;
