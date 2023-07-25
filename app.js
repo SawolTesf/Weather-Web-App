@@ -1,16 +1,17 @@
 // Variables
 const mainContainer = document.getElementById('main-container');
 const formContainer = document.getElementById('form-container');
+const clock = document.getElementById('clock');
 const weatherContainer = document.getElementById('weather-container');
 const locationName = document.getElementById('location-name');
+const currentDate = document.getElementById('current-date');
+const currentTime = document.getElementById('current-time');
 const weatherIcon = document.getElementById('weather-icon');
 const weatherDescription = document.getElementById('weather-description');
-const currentDate = document.getElementById('current-date');
 const currentTemp = document.getElementById('current-temp');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 const errorMessage = document.getElementById('error-message');
-
 const unitSwitch = document.getElementById('unit-switch');
 const unitLabel = document.getElementById('unit-label');
 
@@ -53,7 +54,9 @@ async function getWeather(location) {
 
         weatherDescription.textContent = data.current.condition.text;
 
-        currentDate.textContent = getDate(data.current.last_updated.substr(0,10));
+        currentDate.textContent = getDate(data.current.last_updated.substr(0,10)) + " at " + getTime(data.current.last_updated_epoch);
+        
+        //currentTime.textContent = getTime(data.current.last_updated_epoch);
 
         errorMessage.textContent = '';
     } catch (error) {
@@ -68,7 +71,6 @@ async function getWeather(location) {
     updateTempDisplay();
 }
 
-
 getWeather('Dallas, Texas');
 
 function updateTempDisplay() {
@@ -80,7 +82,6 @@ function updateTempDisplay() {
         unitLabel.textContent = '°C';
     }
 }
-
 
 function getDate(dateString) {
     // Parsing date string
@@ -101,3 +102,36 @@ function getDate(dateString) {
     return 'Last updated: ' + dayName + ', ' + monthName + ' ' + day + ', ' + fullYear;
 }
 
+function getTime(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let hours = date.getHours();
+    let minutes = "0" + date.getMinutes();
+    let formattedTime = hours + ':' + minutes.slice(-2);
+    return formattedTime;
+}
+
+function updateClock() {
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let session = "AM";
+
+    if (hours == 0) {
+        hours = 12;
+    }
+    if (hours > 12) {
+        hours = hours - 12;
+        session = "PM";
+    }
+
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    let time = hours + ":" + minutes + ":" + seconds + " " + session;
+
+    clock.textContent = time;
+    let t = setTimeout(updateClock, 1000);
+}
+updateClock();
