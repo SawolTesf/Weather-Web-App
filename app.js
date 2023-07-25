@@ -4,11 +4,16 @@ const formContainer = document.getElementById('form-container');
 const weatherContainer = document.getElementById('weather-container');
 const locationName = document.getElementById('location-name');
 const weatherIcon = document.getElementById('weather-icon');
+const weatherDescription = document.getElementById('weather-description');
 const currentDate = document.getElementById('current-date');
 const currentTemp = document.getElementById('current-temp');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 const errorMessage = document.getElementById('error-message');
+
+const unitSwitch = document.getElementById('unit-switch');
+const unitLabel = document.getElementById('unit-label');
+
 
 
 // Event Listeners
@@ -17,6 +22,11 @@ searchForm.addEventListener('submit', e => {
     const location = searchInput.value;
     getWeather(location);
 });
+
+unitSwitch.addEventListener('change', () => {
+    updateTempDisplay();
+});
+
 
 // Functions
 
@@ -36,11 +46,14 @@ async function getWeather(location) {
 
         locationName.textContent = data.location.name + ', ' + data.location.region;
 
-        currentTemp.textContent = data.current.temp_c;
+        currentTemp.temp_c = data.current.temp_c; // Store temperature in Celsius
+        currentTemp.temp_f = data.current.temp_f; // Store temperature in Fahrenheit
 
         weatherIcon.src = data.current.condition.icon;
 
-        currentDate.textContent = getDate(data.current.last_updated.substr(0, 10));
+        weatherDescription.textContent = data.current.condition.text;
+
+        currentDate.textContent = getDate(data.current.last_updated.substr(0,10));
 
         errorMessage.textContent = '';
     } catch (error) {
@@ -51,9 +64,23 @@ async function getWeather(location) {
         currentTemp.textContent = 'N/A';
         locationName.textContent = 'N/A';
     }
+
+    updateTempDisplay();
 }
 
+
 getWeather('Dallas, Texas');
+
+function updateTempDisplay() {
+    if (unitSwitch.checked) {
+        currentTemp.textContent = currentTemp.temp_f + '°F';
+        unitLabel.textContent = '°F';
+    } else {
+        currentTemp.textContent = currentTemp.temp_c + '°C';
+        unitLabel.textContent = '°C';
+    }
+}
+
 
 function getDate(dateString) {
     // Parsing date string
