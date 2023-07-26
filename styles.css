@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     font-family: Russo One, sans-serif;
     
-    background-image: url(images/v2osk-JE01L3hB0GQ-unsplash.jpg);
+    background-image: url(images/cloudy-sky.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,19 +26,46 @@ body {
 }
 
 #left-container{
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
+#top-left-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#btn-container{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    gap: 10px;
+}
+
+#time-container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    font-family: Tektur;
+
+}
+
+#weather-description{
+    font-size: 3px;
+    align-self: flex-end;
+    padding-top: 400px;
+}
 
 #right-container{
     border-left: 1px solid rgba(128, 128, 128, 0.25);
     border-radius: 25px;
     width: 300px;
     height: 100vh;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(1px);
 }
-
-
 
 /*  Weather container */
 #weather-container {
@@ -76,10 +103,6 @@ body {
 #current-temp {
     font-size: 36px;
     color: rgb(255, 255, 255);
-}
-
-#clock-container{
-    font-family: Tektur;
 }
 
 /* Footer */
