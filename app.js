@@ -15,9 +15,12 @@ const errorMessage = document.getElementById('error-message');
 const unitSwitch = document.getElementById('unit-switch');
 const unitLabel = document.getElementById('unit-label');
 
-
-
 // Event Listeners
+
+window.onload = () => {
+    searchInput.value = ''; // Clear search input field on page load
+}
+
 searchForm.addEventListener('submit', e => {
     e.preventDefault();
     const location = searchInput.value;
@@ -53,6 +56,8 @@ async function getWeather(location) {
         weatherIcon.src = data.current.condition.icon;
 
         weatherDescription.textContent = data.current.condition.text;
+
+        setBackgroundImage(data.current.condition.text);
 
         currentDate.textContent = getDate(data.current.last_updated.substr(0,10)) + " at " + getTime(data.current.last_updated_epoch);
         
@@ -96,7 +101,6 @@ function getDate(dateString) {
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let dayName = days[today.getDay()];
 
-
     let fullYear = today.getFullYear();
 
     return 'Last updated: ' + dayName + ', ' + monthName + ' ' + day + ', ' + fullYear;
@@ -135,3 +139,7 @@ function updateClock() {
     let t = setTimeout(updateClock, 1000);
 }
 updateClock();
+
+function setBackgroundImage(weather){
+    
+}
