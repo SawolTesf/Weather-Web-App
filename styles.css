@@ -1,28 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Tektur&display=swap');
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: Russo One, sans-serif;
+    
+    background-image: url(images/v2osk-JE01L3hB0GQ-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/*  Weather container */
+#main-container{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    height: 100vh;
+    width: 100%;
 
+}
+
+#left-container{
+    flex: 1;
+}
+
+
+#right-container{
+    border-left: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 25px;
+    width: 300px;
+    height: 100vh;
+    backdrop-filter: blur(2px);
+}
+
+
+
+/*  Weather container */
 #weather-container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
 }
 
 #location-name {
     font-size: 24px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 #current-date {
     font-size: 18px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 #current-time {
     font-size: 18px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 #weather-icon {
@@ -31,14 +70,17 @@ body {
 
 #weather-description {
     font-size: 18px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 #current-temp {
     font-size: 36px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
+#clock-container{
+    font-family: Tektur;
+}
 
 /* Footer */
 #footer {
@@ -46,7 +88,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
     font-size: 10px;
 }
 
@@ -121,4 +162,3 @@ body {
   .slider.round:before {
       border-radius :50%
   }
-  

@@ -7,47 +7,54 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="header">
-        <h1>Weather Web App</h1>
-    </header>
-
     <div id="main-container">
-        <div id="form-container">
+        <div id="left-container">
+            <div id="form-container">
+
+                <p id="error-message"></p>
+            </div>
+
+            <label class="switch">
+                <input type="checkbox" id="unit-switch">
+                <span class="slider round"></span>
+            </label>
+            <span id="unit-label">°C</span>
+            <div id="clock-container">
+                <p id="clock"></p>
+            </div>
+            <p id="weather-description"></p>
+
+        </div>
+
+        <div id="right-container">
             <form id="search-form">
                 <input type="text" id="search-input" placeholder="Enter city name">
                 <button type="submit" id="search-btn">Search</button>      
             </form>
-            <p id="error-message"></p>
+            
+            <div id="weather-container">
+                <p id="location-name"></p>
+                <div id="update-container">
+                    <p id="current-date"></p>
+                    <p id="current-time"></p>
+                </div>
+                <img alt="weather-icon" id="weather-icon">
+                <p id="current-temp"></p>
+            </div>            
         </div>
 
-        <label class="switch">
-            <input type="checkbox" id="unit-switch">
-            <span class="slider round"></span>
-        </label>
-        <span id="unit-label">°C</span>
-        <div id="clock-container">
-            <p id="clock"></p>
-        </div>
-        <div id="weather-container">
-            <p id="location-name"></p>
-            <div id="update-container">
-                <p id="current-date"></p>
-                <p id="current-time"></p>
-            </div>
-            <img alt="weather-icon" id="weather-icon">
-            <p id="weather-description"></p>
-            <p id="current-temp"></p>
-        </div>
-        
+
     </div>
-
+<!---
     <footer id="footer">
-        <p>Copyright &copy; 2023 Sawol Tesfaghebriel</p>
+        <p>Copyright © 2023 Sawol Tesfaghebriel</p>
         <a href="https://github.com/SawolTesf/Weather-Web-App">
             <img src="images/github-mark.png" alt="github-logo" id="github-logo">
         </a>
     </footer>
-
+-->
     <script src="app.js"></script>
+
 </body>
+
 </html>
