@@ -18,20 +18,22 @@ const unitLabel = document.getElementById('unit-label');
 
 // Event Listeners
 
+// Clear search input field on page load
 window.onload = () => {
-    searchInput.value = ''; // Clear search input field on page load
+    searchInput.value = '';
 }
 
+// Get weather data when search form is submitted
 searchForm.addEventListener('submit', e => {
     e.preventDefault();
     const location = searchInput.value;
     getWeather(location);
 });
 
+// Update temperature display when unit switch is changed
 unitSwitch.addEventListener('change', () => {
     updateTempDisplay();
 });
-
 
 // Functions
 
@@ -49,21 +51,13 @@ async function getWeather(location) {
 
         console.log(data);
 
+        // Update weather information with data from API
         locationName.textContent = data.location.name + ', ' + data.location.region;
-
         currentTemp.temp_c = data.current.temp_c; // Store temperature in Celsius
         currentTemp.temp_f = data.current.temp_f; // Store temperature in Fahrenheit
-
         weatherIcon.src = data.current.condition.icon;
-
-        weatherDescription.textContent = data.current.condition.text;
-
-        setBackgroundImage(data.current.condition.text);
-
+        weatherDescription.textContent        = data.current.condition.text;
         currentDate.textContent = getDate(data.current.last_updated.substr(0,10)) + " at " + getTime(data.current.last_updated_epoch);
-        
-        //currentTime.textContent = getTime(data.current.last_updated_epoch);
-
         errorMessage.textContent = '';
     } catch (error) {
         // Display error message
@@ -74,27 +68,30 @@ async function getWeather(location) {
         locationName.textContent = 'N/A';
         currentDate.textContent = 'N/A';
         weatherDescription.textContent = 'N/A';
-        
     }
 
+    // Update temperature display
     updateTempDisplay();
 }
 
+// Get weather data for default location on page load
 getWeather('Dallas, Texas');
 
+// Update temperature display based on selected unit
 function updateTempDisplay() {
     if (currentTemp.temp_c && currentTemp.temp_f) {
         if (unitSwitch.checked) {
             currentTemp.textContent = currentTemp.temp_f + '°F';
             unitLabel.textContent = '°F';
-        } else {
+        } 
+        else {
             currentTemp.textContent = currentTemp.temp_c + '°C';
             unitLabel.textContent = '°C';
         }
     }
 }
 
-
+// Format date string
 function getDate(dateString) {
     // Parsing date string
     let [year, month, day] = dateString.split('-').map(Number);
@@ -115,6 +112,7 @@ function getDate(dateString) {
     return 'Last updated: ' + dayName + ', ' + monthName + ' ' + day + ', ' + fullYear;
 }
 
+// Format time string
 function getTime(timestamp) {
     let date = new Date(timestamp * 1000);
     let hours = date.getHours();
@@ -123,6 +121,7 @@ function getTime(timestamp) {
     return formattedTime;
 }
 
+// Update clock display
 function updateClock() {
     let date = new Date();
     let hours = date.getHours();
@@ -138,6 +137,7 @@ function updateClock() {
         session = "PM";
     }
 
+    // Format time string
     hours = (hours < 10) ? "0" + hours : hours;
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
@@ -145,10 +145,6 @@ function updateClock() {
     let time = hours + ":" + minutes + ":" + seconds + " " + session;
 
     clock.textContent = time;
-    let t = setTimeout(updateClock, 1000);
+    setTimeout(updateClock, 1000);
 }
 updateClock();
-
-function setBackgroundImage(weather){
-    
-}
