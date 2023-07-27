@@ -1,264 +1,225 @@
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Tektur&display=swap');
+
+/* Reset margin and padding */
 html, body {
     margin: 0;
     padding: 0;
 }
 
+/* Media query for small screens */
+@media (max-width: 600px) {
+    /* Center elements */
+    #main-container {
+        align-items: center;
+    }
+    #left-container,
+    #right-container {
+        text-align: center;
+    }
+}
 
-
+/* Background video */
 #background-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  
-  }
+    width: 100vw; /* Set width to 100% of viewport width */
+    height: 100vh; /* Set height to 100% of viewport height */
+    object-fit: cover; /* Scale video to cover entire element */
+    position: fixed; /* Position video fixed on page */
+    left: 0; /* Align video to left edge of page */
+    right: 0; /* Align video to right edge of page */
+    top: 0; /* Align video to top edge of page */
+    bottom: 0; /* Align video to bottom edge of page */
+}
 
+/* Body */
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: Russo One, sans-serif;
-    
- 
+    min-height: 100vh; /* Set minimum height to 100% of viewport height */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack child elements vertically */
+    font-family: Russo One, sans-serif; /* Set font family */
 }
 
+/* Main container */
 #main-container{
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    height: 100vh;
-    width: 100%;
-    color: white;
-    z-index: 1; /* Add a z-index property with a value greater than -1 */
-    flex-wrap: wrap-reverse
+    display: flex; /* Use flexbox layout */
+    flex-direction: row; /* Arrange child elements horizontally */
+    flex: 1; /* Allow element to grow and shrink */
+    height: 100vh; /* Set height to 100% of viewport height */
+    width: 100%; /* Set width to 100% */
+    color: white; /* Set text color to white */
+    z-index: 1; /* Set z-index to 1 to place element above background video */
 }
 
-
+/* Left container */
 #left-container{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack child elements vertically */
+    flex: 1; /* Allow element to grow and shrink */
 }
 
+/* Top left container */
 #top-left-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center child elements vertically */
+    justify-content: space-between; /* Distribute space evenly between child elements */
 }
 
+/* Button container */
 #btn-container{
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    padding: 10px;
-    gap: 10px;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center child elements vertically */
+    font-size: 30px; /* Set font size */
+    padding: 10px; /* Add padding */
+    gap: 10px; /* Add gap between child elements */
 }
 
+/* Time container */
 #time-container{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: white;
-    font-family: Tektur;    
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center child elements vertically */
+    gap: 5px; /* Add gap between child elements */
+    color: white; /* Set text color to white */
+    font-family: Tektur; /* Set font family */
 }
 
+/* Search form */
 #search-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center child elements vertically */
+    justify-content: center; /* Center child elements horizontally */
+    gap: 10px; /* Add gap between child elements */
+    padding: 10px; /* Add padding */
 }
 
+/* Right container */
 #right-container{
-    border-left: 1px solid rgba(128, 128, 128, 0.25);
-    border-radius: 25px;
-    width: 300px;
-    height: 100vh;
-    backdrop-filter: blur(2px);
+    border-left: 1px solid rgba(128, 128, 128, 0.25); /* Add left border */
+    border-radius: 25px; /* Add border radius */
+    width: 300px; /* Set width */
+    height: 100vh; /* Set height to 100% of viewport height */
+    backdrop-filter: blur(2px); /* Add blur effect to background */
 }
 
-/*  Weather container */
+/* Weather container */
 #weather-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: center; /* Center child elements vertically */
+    align-items: center; /* Center child elements horizontally */
+    padding: 50px; /* Add padding */
 }
 
+/* Location name */
 #location-name {
-    font-size: 24px;
-    color: rgb(255, 255, 255);
+    font-size: 24px; /* Set font size */
+    color: rgb(255, 255, 255); /* Set text color to white */
 }
 
+/* Current date */
 #current-date {
-    font-size: 18px;
-    color: rgb(255, 255, 255);
+    font-size: 18px; /* Set font size */
+    color: rgb(255, 255, 255); /* Set text color to white */
 }
 
+/* Current time */
 #current-time {
-    font-size: 18px;
-    color: rgb(255, 255, 255);
+    font-size: 18px; /* Set font size */
+    color: rgb(255, 255, 255); /* Set text color to white */
 }
 
+/* Weather icon */
 #weather-icon {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Set maximum width to 100% */
+    height: auto; /* Set height to auto to maintain aspect ratio */
 }
 
+/* Weather description */
 #weather-description{
-    font-size: 30px;
-    align-self: flex-end;
-    padding-top: 250px;
-    padding-right: 50px;
-    color: white;
-    border-bottom: (128, 128, 128, 0.25);
+    font-size: 30px; /* Set font size */
+    align-self: flex-end; /* Align element to right edge of container */
+    padding-top: 250px; /* Add top padding */
+    padding-right: 50px; /* Add right padding */
+    color: white; /* Set text color to white */
 }
 
+/* Current temperature */
 #current-temp {
-    font-size: 36px;
-    color: rgb(255, 255, 255);
+    font-size: 36px; /* Set font size */
+    color: rgb(255, 255, 255); /* Set text color to white */
 }
 
-/* Footer */
-#footer {
-    margin-top: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-}
-
-#github-logo {
-    height: 20px;
-    width: auto;
-    padding: 10px;
-    transition: transform .7s ease-in-out;
-}
-
-#github-logo:hover {
-    transform: rotate(360deg);
-}
-
-
-
+/* Search input */
 .input-search{
-    height: 10px;
-    width: 100px;
-    border-style: none;
-    padding: 10px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    outline: none;
-    border-radius: 50px;
-    transition: all .5s ease-in-out;
-    background-color: rgba(128, 128, 128, 0.563);
-    color:#fff;
-    align-items: center;
-  }
-  .input-search::placeholder{
-    color:rgba(255,255,255,.5);
-    font-size: 18px;
-    letter-spacing: 2px;
-    font-weight: 100;
-  }
-  .btn-search{
-    width: 50px;
-    height: 50px;
-    border-style: none;
-    font-size: 20px;
-    font-weight: bold;
-    outline: none;
-    cursor: pointer;
-    border-radius: 50%;
-    position: absolute;
-    right: 0px;
-    color:#ffffff ;
-    background-color:transparent;
-    pointer-events: painted;  
-  }
-  .btn-search:focus ~ .input-search{
-    width: 300px;
-    border-radius: 0px;
-    background-color: transparent;
-    border-bottom:1px solid rgba(255,255,255,.5);
-    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  .input-search:focus{
-    width: 300px;
-    border-radius: 0px;
-    background-color: transparent;
-    border-bottom:1px solid rgba(255,255,255,.5);
-    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  
-
-
-
+    height: 10px; /* Set height */
+    width: 100px; /* Set initial width */
+    border-style: none; /* Remove border */
+    padding: 10px; /* Add padding */
+    font-size: 18px; /* Set font size */
+    letter-spacing: 2px; /* Set letter spacing */
+    outline: none; /* Remove outline */
+    border-radius: 50px; /* Add border radius */
+    transition: all .5s ease-in-out; /* Add transition for smooth animation */
+    background-color: rgba(128, 128, 128, 0.563); /* Set background color */
+    color:#fff; /* Set text color to white */
+    align-items: center; /* Center element vertically */
+}
+.input-search::placeholder{
+    color:rgba(255,255,255,.5); /* Set placeholder text color */
+    font-size: 18px; /* Set placeholder font size */
+    letter-spacing: 2px; /* Set placeholder letter spacing */
+    font-weight: 100; /* Set placeholder font weight */
+}
 
 /* Switch */
-
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #b4b0b0;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #ff0000;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #ff0000;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-      border-radius :34px
-  }
-  .slider.round:before {
-      border-radius :50%
-  }
+    position: relative; /* Set position to relative */
+    display: inline-block; /* Use inline-block display */
+    width: 60px; /* Set width */
+    height: 34px; /* Set height */
+}
+.switch input { 
+    opacity: 0; /* Hide input element */
+    width: 0; /* Set width to 0 */
+    height: 0; /* Set height to 0 */
+}
+.slider {
+    position: absolute; /* Set position to absolute */
+    cursor: pointer; /* Set cursor to pointer */
+    top: 0; /* Align element to top edge of container */
+    left: 0; /* Align element to left edge of container */
+    right: 0; /* Align element to right edge of container */
+    bottom: 0; /* Align element to bottom edge of container */
+    background-color: #b4b0b0; /* Set background color */
+    -webkit-transition: .4s; /* Add transition for smooth animation */
+    transition: .4s; /* Add transition for smooth animation */
+}
+.slider:before {
+    position: absolute; /* Set position to absolute */
+    content: ""; /* Set content to empty string */
+    height: 26px; /* Set height */
+    width: 26px; /* Set width */
+    left: 4px; /* Set left position */
+    bottom: 4px; /* Set bottom position */
+    background-color: white; /* Set background color to white */
+    -webkit-transition: .4s; /* Add transition for smooth animation */
+    transition: .4s; /* Add transition for smooth animation */
+}
+input:checked + .slider {
+    background-color: #ff0000; /* Set background color when input is checked */
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #ff0000; /* Add box shadow when input is focused */
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px); /* Move element to the right when input is checked */
+    -ms-transform: translateX(26px); /* Move element to the right when input is checked */
+    transform: translateX(26px); /* Move element to the right when input is checked */
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius :34px; /* Add border radius */
+}
+.slider.round:before {
+    border-radius :50%; /* Add border radius */
+}
