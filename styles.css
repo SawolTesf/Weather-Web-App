@@ -4,16 +4,25 @@ html, body {
     padding: 0;
 }
 
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  
+  }
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: Russo One, sans-serif;
     
-    background-image: url(images/cloudy-sky.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+ 
 }
 
 #main-container{
@@ -22,8 +31,10 @@ body {
     flex: 1;
     height: 100vh;
     width: 100%;
-
+    color: white;
+    z-index: 1; /* Add a z-index property with a value greater than -1 */
 }
+
 
 #left-container{
     display: flex;
@@ -41,6 +52,7 @@ body {
     display: flex;
     align-items: center;
     font-size: 30px;
+    padding: 10px;
     gap: 10px;
 }
 
@@ -49,14 +61,7 @@ body {
     align-items: center;
     gap: 5px;
     color: white;
-    font-family: Tektur;
-
-}
-
-#weather-description{
-    font-size: 3px;
-    align-self: flex-end;
-    padding-top: 400px;
+    font-family: Tektur;    
 }
 
 #right-container{
@@ -64,7 +69,7 @@ body {
     border-radius: 25px;
     width: 300px;
     height: 100vh;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(2px);
 }
 
 /*  Weather container */
@@ -95,9 +100,13 @@ body {
     width: 100px;
 }
 
-#weather-description {
-    font-size: 18px;
-    color: rgb(255, 255, 255);
+#weather-description{
+    font-size: 30px;
+    align-self: flex-end;
+    padding-top: 250px;
+    padding-right: 50px;
+    color: white;
+    border-bottom: (128, 128, 128, 0.25);
 }
 
 #current-temp {
