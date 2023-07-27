@@ -9,17 +9,17 @@
 <body>
 
     <!-- Live background -->
-
     <video id="background-video" autoplay loop muted>
         <source src="images/beach-live.mp4" type="video/mp4">
     </video>
+
+    <!-- Main container -->
     <div id="main-container">
-
-        
+        <!-- Left container -->
         <div id="left-container">
-            
+            <!-- Top left container -->
             <div id="top-left-container">
-
+                <!-- Unit switch -->
                 <div id="btn-container">
                     <label class="switch">
                         <input type="checkbox" id="unit-switch">
@@ -27,53 +27,44 @@
                     </label>
                     <span id="unit-label">°C</span>                
                 </div>
+                <!-- Time container -->
                 <div id="time-container">
                     <p id="date"></p>
                     <p id="clock"></p>
                 </div>
-
             </div>
-
-
+            <!-- Weather description -->
             <p id="weather-description"></p>
-
         </div>
-
+        <!-- Right container -->
         <div id="right-container">
-
+            <!-- Form container -->
             <div id="form-container">
-
-          
-
+                <!-- Search form -->
                 <form id="search-form">
                     <input type="text" id="search-input" class="input-search" placeholder="Enter city name">    
                 </form>
+                <!-- Error message -->
                 <p id="error-message"></p>
-
             </div>
-
-
+            <!-- Weather container -->
             <div id="weather-container">
+                <!-- Location name -->
                 <p id="location-name"></p>
+                <!-- Update container -->
                 <div id="update-container">
                     <p id="current-date"></p>
                     <p id="current-time"></p>
                 </div>
+                <!-- Weather icon -->
                 <img alt="weather-icon" id="weather-icon">
+                <!-- Current temperature -->
                 <p id="current-temp"></p>
             </div>            
         </div>
-
-
     </div>
-<!---
-    <footer id="footer">
-        <p>Copyright © 2023 Sawol Tesfaghebriel</p>
-        <a href="https://github.com/SawolTesf/Weather-Web-App">
-            <img src="images/github-mark.png" alt="github-logo" id="github-logo">
-        </a>
-    </footer>
--->
+
+    <!-- Scripts -->
     <script src="app.js"></script>
 
 </body>
