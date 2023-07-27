@@ -1,6 +1,7 @@
 // Variables
 const mainContainer = document.getElementById('main-container');
 const formContainer = document.getElementById('form-container');
+const liveDate = document.getElementById('date');
 const clock = document.getElementById('clock');
 const weatherContainer = document.getElementById('weather-container');
 const locationName = document.getElementById('location-name');
@@ -71,6 +72,9 @@ async function getWeather(location) {
         // Clear weather data
         currentTemp.textContent = 'N/A';
         locationName.textContent = 'N/A';
+        currentDate.textContent = 'N/A';
+        weatherDescription.textContent = 'N/A';
+        
     }
 
     updateTempDisplay();
@@ -79,14 +83,17 @@ async function getWeather(location) {
 getWeather('Dallas, Texas');
 
 function updateTempDisplay() {
-    if (unitSwitch.checked) {
-        currentTemp.textContent = currentTemp.temp_f + '°F';
-        unitLabel.textContent = '°F';
-    } else {
-        currentTemp.textContent = currentTemp.temp_c + '°C';
-        unitLabel.textContent = '°C';
+    if (currentTemp.temp_c && currentTemp.temp_f) {
+        if (unitSwitch.checked) {
+            currentTemp.textContent = currentTemp.temp_f + '°F';
+            unitLabel.textContent = '°F';
+        } else {
+            currentTemp.textContent = currentTemp.temp_c + '°C';
+            unitLabel.textContent = '°C';
+        }
     }
 }
+
 
 function getDate(dateString) {
     // Parsing date string
@@ -102,6 +109,8 @@ function getDate(dateString) {
     let dayName = days[today.getDay()];
 
     let fullYear = today.getFullYear();
+
+    liveDate.textContent = day + ' ' + monthName + ' ' + fullYear + "   |";
 
     return 'Last updated: ' + dayName + ', ' + monthName + ' ' + day + ', ' + fullYear;
 }
